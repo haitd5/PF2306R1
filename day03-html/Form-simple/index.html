@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form simple</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+
+    <header></header>
+    <main>
+        <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+            <div class="card w-50 shadow">
+                <div class="py-3">
+                    <form class="p-4">
+                        <h2 class="text-center pb-2">Order Form</h2>
+                        <p>What would you like to buy?</p>
+
+                        <div class="pb-3">
+                            <select class="w-50">
+                                <option value="  ">A</option>
+                                <option>B (+ 0.5$)</option>
+                                <option>C (+ 0.5$)</option>
+                            </select>
+                        </div>
+                        <p>How many would you like to order?</p>
+                        <input type="radio" name="rd" /> 1 - $10 <br />
+                        <input type="radio" name="rd" /> 2 - $20 <br />
+                        <input type="radio" name="rd" /> 3 - $25 <br />
+                        <p class="pt-3">Name <span class="text-danger">*</span> </p>
+                        <div class="row pb-3">
+                            <div class="col-md-12 col-lg-6 pb-3">
+
+                                <input type="text" name="firstname" placeholder="FirstName" class="w-100" />
+
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+
+                                <input type="text" name="lastname" placeholder="LastName" class="w-100" />
+
+                            </div>
+                        </div>
+                        <p>Email</p>
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="text" name="email" class="w-100" />
+                            </div>
+                        </div>
+                        <p class="pt-3">Phone Number</p>
+                        <div class="row pb-3">
+                            <div class="col-md-12 col-lg-4 pb-3">
+
+                                <input type="text" name="phone1" class="w-100" />
+
+                            </div>
+                            <div class="col-lg-4 pb-3 d-md-none d-lg-block">
+
+                                <input type="text" name="phone1" class="w-100" />
+
+                            </div>
+                            <div class="col-lg-4 d-md-none d-lg-block">
+
+                                <input type="text" name="phone1" class="w-100" />
+
+                            </div>
+                        </div>
+                        <div class="text-center text-lg-start">
+
+                            <input type="button" value="Submit" class="btn btn-light border border-1" />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+
+    </main>
+    <footer></footer>
+
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/style.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Interact by ID</title>
+</head>
+
+<body>
+    <p id="demo-text">this is a demo text</p>
+    <p class="text-center">
+        this is a text centered paragraph
+    </p>
+    <p>
+        click on the button to change color 1
+    </p>
+    <p class="text-center">
+        this is a text centered paragraph2
+    </p>
+    <p>
+        click on the button to change color 2
+    </p>
+    <script>
+        //get id
+        let demoText = document.getElementById("demo-text");
+        console.log(demoText);
+        demoText.style.color="red"
+
+        //get by tagName
+
+        let pTag = document.getElementsByTagName("p");
+        console.log(pTag);
+        console.log(pTag[1]);
+
+        //get by name
+
+        let textCenterClass = document.getElementsByClassName("text-center");
+        console.log(textCenterClass);
+        console.log(textCenterClass[0]);
+        
+        //get an elemnet inside anther elemnet
+        let body = document.getElementsByTagName("body")
+        console.log(body[0].children);
+    </script>
+</body>
+
+</html>

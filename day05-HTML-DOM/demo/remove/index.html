@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove</title>
+</head>
+<body>
+    <div class="container" id="content">
+        <p id="first-paragraph">This is first paragraph</p>
+        <p id="second-paragraph">This is second paragraph</p>
+    </div>
+
+    <script>
+
+        let contentDiv = document.getElementById("content");
+        let firstParagraph = document.getElementById("first-paragraph");
+        let secondParagraph = document.getElementById("second-paragraph");
+        let pTag = document.getElementsByTagName("p");
+        //method 01
+        firstParagraph.remove();
+
+        //method 02
+        contentDiv.removeChild(secondParagraph);
+        for (const key in pTag) {
+            console.log(pTag[key]);
+            
+        }
+
+    </script>
+</body>
+</html>

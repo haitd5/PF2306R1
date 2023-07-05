@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculatior</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+    <script src="assest/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container pt-4">
+        <form>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Số tiền</label>
+                <input type="number" min="1000000" max="2000000000" class="form-control" onchange="getInput(this)" id="amount" name="amout" placeholder="50 chẹo">
+                
+            </div>
+            <div class="mb-3">
+                <label for="rate" class="form-label">Tiền lãi</label>
+                <input type="number" min="0.01" max="20.00" step="0.1" class="form-control" id="rate" name="rate" placeholder="6.9%">
+                
+            </div>
+            <div class="mb-3">
+                <label for="year" class="form-label">Năm</label>
+                <input type="number" min="1" max="12" class="form-control" id="year" name="year" placeholder="1 năm">
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Tính</button>
+            
+        </form>
+    </div>
+
+    <script>
+
+        let amount, rate, year;
+        function getInput(obj){
+            console.log(obj.name);
+            console.log(obj.value);
+        }
+    </script>
+</body>
+
+</html>

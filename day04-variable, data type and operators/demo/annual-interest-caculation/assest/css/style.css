@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'poppins';
+    src: url("../font/Poppins/Poppins-Regular.ttf");
+}
+* {
+    font-family: 'poppnis',sans-serif;
+}
+.product {
+    background-color: #F5F5F5;
+}
+.card-body {
+    font-size: .75rem;
+}
+.card img {
+    transition: all 0.3s ease;
+}
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.link-custom {
+    position: relative;
+}
+.link-custom::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    transition: all .4s;
+}
+.link-custom:hover::after {
+    width: 100%;
+} 
+.new-arrivals {
+    background-color: #A5A5A5;
+}
+.follow {
+    background: url(/assest/media/image/follow/follow2.png);
+}
+.shop-banner {
+    background: url(/assest/media/image/shops/shop.png);
+}
+.contact-banner {
+    background: url(/assest/media/image/contact/contact.png);
+}
+.error-banner {
+    background: url(/assest/media/image/contact/contact.png);
+}
+.account-banner {
+    background: url(/assest/media/image/banner/account-banner.png);
+}
+.checkout-banner {
+    background: url(/assest/media/image/banner/checkout-banner.png);
+}
+.cart-banner {
+    background: url(/assest/media/image/banner/cart-banner.png);
+}
+.bg-color {
+    background-color: #d4d4d4;
+}
+.text-color {
+    color: rgb(148, 193, 15);
+}
+.text-min {
+    /* font-size: .8rem; */
+    color: #9F9F9F;
+}
+.overlay-left, .overlay-right {
+    transform: translateY(-120%);
+    transition: all 0.5s ease ;
+    
+}
+.card:hover .overlay-left {
+    transform: translateX(0%);   
+}
+.card:hover .overlay-right {
+    transform: translateY(0%);  
+}
+.cart-color {
+    background-color: #FFF9E5;
+}
+img {
+    transition: all 0.3s ease;
+}
+img:hover {
+    transform: scale(0.9);
+    
+  }

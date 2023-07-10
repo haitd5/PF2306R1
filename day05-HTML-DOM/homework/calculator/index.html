@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculator</title>
+</head>
+
+<body>
+	<input type="number" class="number1" id="number1">
+	<input type="number" class="number2" id="number2"><br><br>
+	<div>
+		<button onclick="calculate('+')">Cộng</button>
+		<button onclick="calculate('-')">Trừ</button>
+		<button onclick="calculate('*')">Nhân</button>
+		<button onclick="calculate('/')">Chia</button>
+
+	</div>
+
+	<p id="result"></p>
+	<script>
+		let operand1;
+		let operand2;
+		let result;
+		function calculate(operator) {
+			operand1 = parseFloat(document.getElementById("number1").value);
+			operand2 = parseFloat(document.getElementById("number2").value);
+			
+
+			if (isNaN(operand1) || isNaN(operand2)) {
+				document.getElementById("result").textContent = "Hãy nhập đúng giá trị cho cả hai số hạng.";
+				return;
+			}
+
+			switch (operator) {
+				case '+':
+					result = operand1 + operand2;
+					break;
+				case '-':
+					result = operand1 - operand2;
+					break;
+				case '*':
+					result = operand1 * operand2;
+					break;
+				case '/':
+					if (operand2 == 0) {
+						document.getElementById("result").textContent = "Không thể chia cho 0";
+						return;
+					}
+					result = operand1 / operand2;
+					break;
+				default:
+					document.getElementById("result").textContent = "Phép tính không hợp lệ.";
+					return;
+			}
+
+			document.getElementById("result").textContent = "Kết quả: " + operand1 + " " + operator + " " + operand2 + " = " + result;
+		}
+	</script>
+</body>
+
+</html>

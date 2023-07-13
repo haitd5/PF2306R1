@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business check ISBN-10</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-capitalize text-primary">business check ISBN-10</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container text-center">
+            <form action="#" method="post">
+                <div class="m-auto col-3">
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>1</sub></span>
+                        <input type="number" name="d1" onchange="getNumber(this,'d1')" class="form-control" min="0" max="9">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>2</sub></span>
+                        <input type="number" name="d2" onchange="getNumber(this,'d2')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>3</sub></span>
+                        <input type="number" name="d3" onchange="getNumber(this,'d3')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>4</sub></span>
+                        <input type="number" name="d4" onchange="getNumber(this,'d4')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>5</sub></span>
+                        <input type="number" name="d5" onchange="getNumber(this,'d5')" min="0" max="9"
+                            class="form-control">
+                    </div>
+
+                </div>
+                <div class="m-auto col-3 ">
+
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>6</sub></span>
+                        <input type="number" name="d6" onchange="getNumber(this,'d6')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>7</sub></span>
+                        <input type="number" name="d7" onchange="getNumber(this,'d7')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>8</sub></span>
+                        <input type="number" name="d8" onchange="getNumber(this,'d8')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>9</sub></span>
+                        <input type="number" name="d9" onchange="getNumber(this,'d9')" min="0" max="9"
+                            class="form-control">
+                    </div>
+                    <div class=" input-group input-group-sm mb-3">
+                        <span class="input-group-text text-primary fw-bolder fs-5"
+                            id="inputGroup-sizing-sm">d<sub>10</sub>
+                        </span>
+                        <input type="number" name="d10" disabled onchange="getNumber(this,'d9')" min="0" max="9"
+                            class="form-control">
+                    </div>
+
+            </form>
+        </div>
+        <div class="m-auto col-3">
+            <button type="button" class="btn btn-primary text-capitalize d-inline-block fs-3"
+                id="btnCheck">ISBN-10</sub>
+            </button>
+            <p id="results" class="ms-4 fw-bolder text-info my-auto d-inline-block fs-2"></p>
+        </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let d1, d2, d3, d5, d6, d7, d8, d9, d10;
+        let results = document.getElementById("results")
+        let btnCheck = document.getElementById("btnCheck")
+        function getNumber(obj, subject) {
+            let number = obj.value;
+            switch (subject) {
+                case "d1": d1 = Number(number); break;
+                case "d2": d2 = Number(number); break;
+                case "d3": d3 = Number(number); break;
+                case "d4": d4 = Number(number); break;
+                case "d5": d5 = Number(number); break;
+                case "d6": d6 = Number(number); break;
+                case "d7": d7 = Number(number); break;
+                case "d8": d8 = Number(number); break;
+                case "d9": d9 = Number(number); break;
+                default: break;
+            }
+
+        }
+        btnCheck.addEventListener("click", function () {
+            d10 = (d1 + 2 * d2 + 3 * d3 + 4 * d4 + 5 * d5 + 6 * d6 + 7 * d7 + 8 * d8 + 9 * d9) % 11;
+            if (d10 < 10) {
+                results.innerText = d1 + "" + d2 + "" + d3 + "" + d4 + "" + d5 + "" + d6 + "" + d7 + "" + d8 + "" + d9 + "" + d10;
+            } else {
+                results.innerText = d1 + "" + d2 + "" + d3 + "" + d4 + "" + d5 + "" + d6 + "" + d7 + "" + d8 + "" + d9 + "" + "X";
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

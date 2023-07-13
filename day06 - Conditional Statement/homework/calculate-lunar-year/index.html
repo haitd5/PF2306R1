@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate the lunar year</title>
+</head>
+
+<body>
+    <input type="number" onchange="inputYear(this)">
+    <button id="btnCheck">Check year</button>
+    <p id="result"></p>
+    <script>
+        let year, heavenlyStems, earthlyBranches;
+        let btnCheck = document.getElementById("btnCheck");
+        let result = document.getElementById("result");
+        function inputYear(obj) {
+            let year = obj.value;
+        }
+        btnCheck.addEventListener("click", function () {
+            let firstElement = year % 10;
+            let secondElement = year % 12;
+            switch (firstElement) {
+                case 0:
+                    heavenlyStems = "Canh"
+                    break;
+                case 1:
+                    heavenlyStems = "Tân"
+                    break;
+                case 2:
+                    heavenlyStems = "Nhâm"
+                    break;
+                case 3:
+                    heavenlyStems = "Quý"
+                    break;
+                case 4:
+                    heavenlyStems = "Giáp"
+                    break;
+                case 5:
+                    heavenlyStems = "Ất"
+                    break;
+                case 6:
+                    heavenlyStems = "Bính"
+                    break;
+                case 7:
+                    heavenlyStems = "Đinh"
+                    break;
+                case 8:
+                    heavenlyStems = "Mậu"
+                    break;
+                default:
+                    heavenlyStems = "Kỷ"
+                    break;
+            }
+            switch (secondElement) {
+                case 0:
+                    earthlyBranches = "Thân";
+                    break;
+                case 1:
+                    earthlyBranches = "Dậu";
+                    break;
+                case 2:
+                    earthlyBranches = "Tuất";
+                    break;
+                case 3:
+                    earthlyBranches = "Hợi";
+                    break;
+                case 4:
+                    earthlyBranches = "Tý";
+                    break;
+                case 5:
+                    earthlyBranches = "Sửu";
+                    break;
+                case 6:
+                    earthlyBranches = "Dần";
+                    break;
+                case 7:
+                    earthlyBranches = "Mão";
+                    break;
+                case 8:
+                    earthlyBranches = "Thìn";
+                    break;
+                case 9:
+                    earthlyBranches = "Tị";
+                    break;
+                case 10:
+                    earthlyBranches = "Ngọ";
+                    break;
+                default:
+                    earthlyBranches = "Mùi";
+                    break;
+}
+            result.innerText = "Năm âm lịch: " + heavenlyStems + " " + earthlyBranches;
+        })
+    </script>
+
+</body>
+
+</html>

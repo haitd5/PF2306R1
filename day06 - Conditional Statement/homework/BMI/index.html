@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+</head>
+
+<body>
+    <h1>BMI</h1>
+    <table>
+        <tr>
+            <td>Chiều cao</td>
+            <td><input type="number" name="height" id="height" onchange="getHeight(this)"></td>
+        </tr>
+        <tr>
+            <td>Cân nặng</td>
+            <td><input type="number" name="weight" id="weight" onchange="getWeight(this)"></td>
+
+        </tr>
+    </table>
+    <br>
+    <button id="checkBtn">Tính chỉ số!</button>
+    <p id="result"></p>
+
+    <script>
+        let checkBtn = document.getElementById("checkBtn");
+        let result = document.getElementById("result");
+
+        let height
+        function getHeight(obj) {
+            height = parseFloat(obj.value)
+        }
+        let weight
+        function getWeight(obj) {
+            weight = parseFloat(obj.value)
+        }
+        let bmi = parseFloat(weight / height ** 2)
+
+        checkBtn.addEventListener("click", function () {
+            if (bmi > 40) {
+                result.innerText = " Béo phì độ III "
+            } else if (bmi <= 35) {
+                result.innerText = " Béo phì độ II "
+            } else if (bmi <= 30) {
+                result.innerText = " Béo phì độ I"
+            } else if (bmi <= 25) {
+                result.innerText = " Thừa cân "
+            } else if (bmi <= 18.5) {
+                result.innerText = " Bình thường "
+            } else if (bmi <= 17) {
+                result.innerText = " Gầy độ I "
+            } else if (bmi <= 16) {
+                result.innerText = " Gầy độ II "
+            } else {
+                result.innerText = " Gầy độ III "
+            }
+        })
+    </script>
+</body>
+
+</html>

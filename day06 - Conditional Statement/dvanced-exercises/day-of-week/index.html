@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of week</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">Day of week</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-2">
+                    Enter year :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="year" onchange="getYear(this)" name="year">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    Enter month :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="month" onchange="getMonth(this)" name="month">
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-2">
+                    Enter day of the month :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="dayOfMonth" onchange="getDayOfMonth(this)" name="dayOfMonth">
+                </div>
+            </div>
+            <div>
+                <button type="button" class= "btn btn-primary text-capitalize" id="btnCheck">
+                    Day of the week is
+                </button>
+            </div>
+            <div class="text-danger display-5">
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let h, q, m, j, k, year;
+        let result = document.getElementById("result");
+        let btnCheck = document.getElementById("btnCheck");
+
+        function getYear(obj) {
+            year = Number(obj.value);
+        }
+        function getMonth(obj) {
+            m = Number(obj.value);
+        }
+        function getDayOfMonth(obj) {
+            q = Number(obj.value);
+        }
+        btnCheck.addEventListener("click",function(){
+            if (m == 1) {
+                year -= 1
+                m = 13
+            }
+            if (m == 2) {
+                year -= 1
+                m = 14
+            }
+            k = Number(year % 100);
+            j = parseInt(year / 100);
+
+            h = parseInt((q + ((26 * (m + 1)) / 10) + k + (k / 4) + (j / 4) + (5 * j)) % 7);
+            // h = (q + ((26 * (m + 1)) / 10) + k + k / 4 + j / 4 + 5 * j) % 7
+            switch (h) {
+                case 0: res = "Saturday"; break;
+                case 1: res = "Sunday"; break;
+                case 2: res = "Monday"; break;
+                case 3: res = "Tuesday"; break;
+                case 4: res = "Wednesday"; break;
+                case 5: res = "Thursday"; break;
+                case 6: res = "Friday"; break;
+            }
+            document.getElementById("result").innerText = res;
+            console.log("y ", year);
+            console.log("m ", m);
+            console.log("q ", q);
+            console.log("j ", j);
+
+
+            console.log("k ", k);
+            console.log("h ", h);
+            console.log("thu ", res);
+        })
+
+
+
+    </script>
+</body>
+
+</html>

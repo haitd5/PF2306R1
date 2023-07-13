@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test score</title>
+
+</head>
+
+<body>
+    <h1>Tính điểm ĐH khối D</h1>
+    <table>
+
+        <tr>
+            <td>Điểm toán</td>
+            <td><input type="number" name="math" id="math" onchange="getMath(this)"></td>
+        </tr>
+        <tr>
+            <td>Điểm văn</td>
+            <td><input type="number" name="literature" id="literature" onchange="getLiterature(this)"></td>
+
+        </tr>
+        <tr>
+            <td>Điểm anh</td>
+            <td><input type="number" name="english" id="english" onchange="getEnglish(this)"></td>
+        </tr>
+        <tr>
+            <td>Khu Vực</td>
+            <td>
+                <select name="area" id="area" onchange="getString(this)">
+                    <option value=" "></option>
+                    <option value="KV1">KV1</option>
+                    <option value="KV2">KV2</option>
+                    <option value="KV3">KV3</option>
+                    <option value="KV4">KV4</option>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+    <br>
+    <button id="checkBtn">Tính điểm !</button>
+    <p id="result"></p>
+
+    <script>
+        let checkBtn = document.getElementById("checkBtn");
+        let result = document.getElementById("result");
+        let math, literature, english, area
+        function getMath(obj) {
+            math = Number(obj.value);
+        }
+        function getLiterature(obj) {
+            literature = Number(obj.value);
+        }
+        function getEnglish(obj) {
+            english = Number(obj.value);
+        }
+        function getString(obj) {
+            area = obj.value;
+        }
+        checkBtn.addEventListener("click", function () {
+            switch (area) {
+                case "KV1":
+                    result.innerText = ("Tổng điểm ĐH khối D của bạn là: " + parseFloat((math + literature + english + 0.75)))
+                    break;
+                case "KV2":
+                    result.innerText = ("Tổng điểm ĐH khối D của bạn là: " + parseFloat((math + literature + english + 0.5)))
+                    break;
+                case "KV3":
+                    result.innerText = ("Tổng điểm ĐH khối D của bạn là: " + parseFloat((math + literature + english + 0.25)))
+                    break;
+                case "KV4":
+                    result.innerText = ("Tổng điểm ĐH khối D của bạn là: " + parseFloat((math + literature + english)))
+                    break;
+                default:
+                    break;
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>

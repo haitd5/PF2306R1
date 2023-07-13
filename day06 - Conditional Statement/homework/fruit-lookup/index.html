@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fruit lookup</title>
+</head>
+
+<body>
+    <h1>Giá hoa quả</h1>
+    <input type="text" name="fruit" onchange="getString(this)" id="stringInput" placeholder="Please enter an fruit...">
+    <button id="checkBtn">Xem giá!</button>
+    <p id="result"></p>
+
+    <script>
+        let checkBtn = document.getElementById("checkBtn");
+        let result = document.getElementById("result");
+        let fruitName;
+        function getString(obj) {
+            fruitName = obj.value;
+        }
+        checkBtn.addEventListener("click", function () {
+            switch (fruitName) {
+                case "Ổi":
+                case "Dưa Hấu":
+                    result.innerText = "20000 VNĐ/kg";
+                    break;
+                case "Táo":
+                case "Xoài":
+                    result.innerText = "30000 VNĐ/kg";
+                    break;
+                case "Cam":
+                case "Chôm Chôm":
+                    result.innerText = "40000 VNĐ/kg";
+                    break;
+                case "Măng Cụt":
+                    result.innerText = "50000 VNĐ/kg";
+                    break;
+
+
+                default:
+                    result.innerText = "Enter fruit name: ";
+                    break;
+            }
+        })
+    </script>
+</body>
+
+</html>

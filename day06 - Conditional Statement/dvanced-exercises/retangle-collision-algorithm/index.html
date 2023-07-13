@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retangle Collosion Check</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+    <script src="assest/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div class="container mt-5">
+            <div class="mx-5 p-5 d-flex flex-column align-items-center">
+                <div class="d-flex justify-content-between gap-3">
+                    <div class="d-flex flex-column gap-2 mb-4  p-5 rounded-4 bg-light shadow-sm">
+                        <h1 class="text-center mb-3"> First Rectangle Index</h1>
+                        <input type="number" onchange="getRectangleIndex(this, 'firstXCordinate')"
+                            placeholder="Enter the first rectangle's X cordinate" class="form-control mb-3 p-3">
+                        <input type="number" onchange="getRectangleIndex(this, 'firstYCordinate')"
+                            placeholder="Enter the first rectangle's Y cordinate" class="form-control mb-3 p-3">
+                        <input type="number" onchange="getRectangleIndex(this, 'firstWidth')"
+                            placeholder="Enter the first rectangle's width" class="form-control mb-3 p-3">
+                        <input type="number" onchange="getRectangleIndex(this, 'firstHeight')"
+                            placeholder="Enter the first rectangle's height" class="form-control mb-3 p-3">
+
+                    </div>
+                    <div class="d-flex flex-column gap-2 mb-4  p-5 rounded-4 bg-light shadow-sm">
+                        <h1 class="text-center mb-3"> Second Rectangle Index</h1>
+                        <input type="number" onchange="getRectangleIndex(this, 'secondXCordinate')"
+                            placeholder="Enter the second rectangle's X cordinate" class="form-control mb-3 p-3">
+                        <input type="number" onchange="getRectangleIndex(this, 'secondYCordinate')"
+                            placeholder="Enter the second rectangle's X cordinate" class="form-control mb-3 p-3">
+                        <input type="number" onchange="getRectangleIndex(this, 'secondWidth')"
+                            placeholder="Enter the second rectangle's width" class="form-control mb-3 p-3">
+                        <input type="number" onchange="getRectangleIndex(this, 'secondHeight')"
+                            placeholder="Enter the second rectangle's height" class="form-control mb-3 p-3">
+                    </div>
+                </div>
+                <button type="button" id="btnChecker" class="btn btn-dark w-75 p-3">Check</button>
+            </div>
+            <p id="result" class="fs-2 fw-bolder p-3 text-center"></p>
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        let firstXCordinate, firstYCordinate, firstHeight, firstWidth, secondXCordinate, secondYCordinate, secondHeight, secondWidth;
+        let result = document.getElementById("result");
+        let btnChecker = document.getElementById("btnChecker");
+        function getRectangleIndex(obj, index) {
+            let number = obj.value;
+            switch (index) {
+                case 'firstXCordinate':
+                    firstXCordinate = Number(number);
+                    console.log("firstXCordinate " + firstXCordinate)
+                    break;
+                case 'firstYCordinate':
+                    firstYCordinate = Number(number);
+                    console.log("firstYCordinate " + firstYCordinate)
+                    break;
+                case 'firstHeight':
+                    firstHeight = Number(number);
+                    console.log("firstHeight " + firstHeight)
+                    break;
+                case 'firstWidth':
+                    firstWidth = Number(number);
+                    console.log("firstWidth " + firstWidth)
+                    break;
+                case 'secondXCordinate':
+                    secondXCordinate = Number(number);
+                    console.log("secondXCordinate " + secondXCordinate);
+                    break;
+                case 'secondYCordinate':
+                    secondYCordinate = Number(number);
+                    console.log("secondYCordinate " + secondYCordinate);
+                    break;
+                case 'secondHeight':
+                    secondHeight = Number(number);
+                    console.log("secondHeight " + secondHeight);
+                    break;
+                case 'secondWidth':
+                    secondWidth = Number(number);
+                    console.log("secondWidth " + secondWidth);
+                    break;
+                default:
+                    break;
+            }
+        }
+        btnChecker.addEventListener("click", function () {
+            let distanceX = (firstXCordinate + firstWidth / 2) - (secondXCordinate + secondWidth / 2);
+            let distanceY = (firstYCordinate + firstHeight / 2) - (secondYCordinate + secondHeight / 2);
+            let leftX = firstXCordinate - (firstWidth / 2);
+            let rightX = firstXCordinate + (firstWidth / 2);
+            let topY = firstYCordinate - (firstHeight / 2);
+            let botY = firstYCordinate + (firstHeight / 2);
+            let distanceHeight = (firstHeight + secondHeight) / 2;
+            let distanceWidth = (firstWidth + secondWidth) / 2;
+            console.log('leftX'+leftX);
+            console.log('rightX '+ rightX );
+            if (distanceX < 0) {
+                distanceX = 0 - distanceX;
+            };
+
+            if (distanceY < 0) {
+                distanceY = 0 - distanceY;
+            };
+
+            if ((distanceX <= distanceWidth) && (distanceY <= distanceHeight)) {
+                result.innerText = "r2 over laps r1";
+
+            } else if (secondXCordinate >= leftX && secondXCordinate <= rightX && secondYCordinate >= topY && secondYCordinate <= botY) {
+                result.innerText = "r2 is inside r1";
+            } else {
+                result.innerText = "r2 does not over laps r1";
+            }
+        })
+
+    </script>
+</body>
+
+</html>

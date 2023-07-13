@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency conversion</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Amount</td>
+            <td>From Currency</td>
+            <td>To Currency</td>
+
+        </tr>
+        <tr>
+            <td><input type="number" name="amount" id="amount" onchange="getAmount(this)"></td>
+            <td>
+                <select name="currencyToExchanged" id="currencyToExchanged" onchange="getCurrencyToExchanged(this)">
+                    <option value=" "></option>
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+
+            <td>
+                <select name="currencyExchanged" id="currencyExchanged" onchange="getCurrencyExchanged(this)">
+                    <option value=" "></option>
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+
+        </tr>
+    </table>
+    <br>
+    <button id="checkBtn">Convert!</button>
+    <p id="result"></p>
+
+    <script>
+        let checkBtn = document.getElementById("checkBtn");
+        let result = document.getElementById("result");
+        let amount, currencyToExchanged, currencyExchanged
+        function getAmount(obj) {
+            amount = Number(obj.value);
+            console.log(amount);
+        }
+        function getCurrencyToExchanged(obj) {
+            currencyToExchanged = obj.value;
+            console.log(currencyToExchanged);
+        }
+        function getCurrencyExchanged(obj) {
+            currencyExchanged = obj.value;
+            console.log(currencyExchanged);
+        }
+
+        checkBtn.addEventListener("click", function () {
+            if (currencyToExchanged == "VND") {
+                switch (getCurrencyExchanged) {
+                    case "VND": result.innerText = ("Result: " + (amount * 1) + "VND"); break;
+                    case "USD": result.innerText = ("Result: " + (amount * 0.000042) + "USD"); break;
+                    default:
+                        break;
+                }
+                // if (getCurrencyExchanged == "VND") {
+                //     result.innerText = ("Result: " + (amount * 1) + "VND")
+
+                // } else {
+                //     result.innerText = ("Result: " + (amount * 0.000042) + "USD")
+                // }
+            } else if (currencyToExchanged == "USD") {
+                switch (getCurrencyExchanged) {
+                    case "VND": result.innerText = ("Result: " + (amount * 23.640) + "USD"); break;
+                    case "USD": result.innerText = ("Result: " + (amount * 1) + "USD"); break;
+                    default:
+                        break;
+                }
+                // if (getCurrencyExchanged == "VND") {
+                //     result.innerText = ("Result: " + (amount * 23.640) + "VND")
+                // } else {
+                //     result.innerText = ("Result: " + (amount * 1) + "USD")
+                // }
+            }
+        })
+    </script>
+</body>
+
+</html>

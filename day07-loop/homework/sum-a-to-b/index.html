@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum number</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">Sum number</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-2">
+                    Enter a :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="numberA" onchange="getNumberA(this)" name="numberA">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    Enter b :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="numberB" onchange="getNumberB(this)" name="numberB">
+                </div>
+            </div>
+            <div>
+                <button onclick="sumNumber()" type="button" class="btn btn-primary text-capitalize" id="btnCheck">
+                    Sum
+                </button>
+            </div>
+            <div class="text-danger display-5">
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+
+        let result = document.getElementById("result");
+        let btnCheck = document.getElementById("btnCheck");
+        let numberA = document.getElementById("numberA");
+        let numberB = document.getElementById("numberB");
+
+        function getNumberA(obj) {
+            numberA = Number(obj.value);
+            console.log(numberA);
+        }
+        function getNumberB(obj) {
+            numberB = Number(obj.value);
+            console.log(numberB);
+        }
+
+        function sumNumber() {
+            let sum = 0;
+            if (numberA > numberB) {
+                alert("Hãy nhập lại cho đúng")
+            } else {
+                for (let i = numberA; i <= numberB; i++) {
+                    sum += i;
+                }
+                return result.innerText = (`Tổng từ ${numberA} đến ${numberB} là ${sum}`)
+            }
+
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>

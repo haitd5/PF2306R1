@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiplication table</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container pt-3">
+        <h1 class="text-uppercase text-primary ps-5 py-4">Bảng cửu chương</h1>
+        <div class="text-center mx-5">
+            <table id="mul-table">
+
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        let table = "";
+        let mulTable = document.getElementById("mul-table")
+        for (let col = 1; col <= 9; col++) {
+            table += "<tr class='table-primary'>"
+            for (let row = 2; row <= 9; row++) {
+                table += "<td class = 'border-1 p-2'>" + row + " x " + col + " = " + (row * col) + "</td>"
+            }
+            table += "</tr>";
+        }
+        mulTable.innerHTML = table;
+    </script>
+    <script src="assest/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

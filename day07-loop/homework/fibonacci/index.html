@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">Fibonacci</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-2">
+                    Nhập số :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="number" onchange="getNumber(this)" name="number">
+                </div>
+            </div>
+            <div>
+                <button onclick="main()" type="button" class="btn btn-primary text-capitalize" id="btnCheck">
+                    In số :
+                </button>
+            </div>
+            <div class="text-danger display-5">
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let result = document.getElementById("result")
+        let btnCheck = document.getElementById("btnCheck")
+        let time, fibonacciNumber;
+        // let n
+
+        function getNumber(obj) {
+            time = Number(obj.value)
+            console.log("n: " + time);
+        }
+
+        function fibonacci(n) {
+            if (n == 0) {
+                return 0;
+            } else if (n == 1) {
+                return 1;
+            } else {
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+        }
+
+        function main() {
+            for (let i = 1; i <= time; i++) {
+                fibonacciNumber = fibonacci(i);
+
+                document.write(fibonacciNumber + " ")
+                // result.innerText = (fibonacciNumber + " ")
+                
+            }
+            
+        }
+
+
+    </script>
+</body>
+
+</html>

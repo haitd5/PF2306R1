@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">Prime</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-2">
+                    Nhập số nguyên :
+                </div>
+                <div class="col-3">
+                    <input type="number" id="number" onchange="getNumber(this)" name="number">
+                </div>
+            </div>
+            <div class="pb-5">
+                <button onclick="showPrimer()" type="button" class="btn btn-primary text-capitalize" id="btnCheck">
+                    In :
+                </button>
+            </div>
+            <div class="row py-2">
+                <div id="result" class="text-danger display-5">
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer></footer>
+
+    <script>
+        let totalNumberPrimer;
+        let result = document.getElementById("result");
+        function getNumber(obj) {
+            totalNumberPrimer = Number(obj.value);
+            console.log(totalNumberPrimer);
+        }
+
+        function showPrimer() {
+            let count = 0;
+            let number = 2;
+            let primes = " ";
+            while (count <= totalNumberPrimer) {
+                let isPrime = true;
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+
+                }
+                if (isPrime) {
+                    primes += " " + number;
+                    count += 1;
+                }
+                number++;
+            }
+            result.value = primes
+            result.innerText = ("Dãy số nguyên tố: " + primes)
+            console.log(primes);
+        }
+
+    </script>
+</body>
+
+</html>

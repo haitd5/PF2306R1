@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>enter temperature</title>
+	<link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+	<header>
+
+	</header>
+	<main>
+		
+	</main>
+	<footer></footer>
+	<script>
+		
+		
+			let playAgain = true;
+
+			while (playAgain) {
+				let count = 0;
+				while (count < 3) {
+					let currentTemperature = parseInt(prompt("Nhập nhiệt độ hiện tại :"));
+
+					if (isNaN(currentTemperature) || currentTemperature < 1) {
+						alert("Vui lòng nhập lại.");
+						continue;
+					}
+					count++;
+					if (currentTemperature > 100) {
+						alert("Giảm nhiệt độ xuống. Hãy nhập lại.");
+					} else if (currentTemperature < 20) {
+						alert("Tăng nhiệt độ lên. Hãy nhập lại.");
+					}
+
+					if (count == 3) {
+						alert("Bạn đã nhập 3 lần");
+					}
+				}
+
+				playAgain = confirm("Bạn có muốn nhập lại không?");
+			}
+			
+		
+
+	</script>
+	<script src="assest/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

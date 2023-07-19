@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>game</title>
+	<link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+	<header>
+
+	</header>
+	<main>
+		<div class="container">
+			<button class="btn btn-primary" onclick="playGame()">Chơi</button>
+			<p id="result"></p>
+		</div>
+	</main>
+	<footer></footer>
+	<script>
+		
+		function playGame() {
+			let playAgain = true;
+
+			while (playAgain) {
+				let count = 0;
+				let maxRandom = parseInt(prompt("Nhập một số lớn nhất:"));
+				let randomNumber = Math.floor(Math.random() * maxRandom) + 1;
+				console.log(randomNumber);
+				while (count < 3) {
+					let yourNumber = parseInt(prompt("Nhập một số :"));
+
+					if (isNaN(yourNumber) || yourNumber < 1 || yourNumber > maxRandom) {
+						alert("Vui lòng nhập lại.");
+						continue;
+					}
+					count++;
+					if (yourNumber > randomNumber) {
+						alert("Số bạn nhập đang lớn hơn. Hãy nhập lại.");
+					} else if (yourNumber < randomNumber) {
+						alert("Số bạn nhập đang nhỏ hơn. Hãy nhập lại.");
+					} else {
+						
+						alert(`Chính xác! Bạn đã đoán đúng số sau ${count} lần nhập.`);
+						break;
+					}
+
+					if (count == 3) {
+						alert(`Bạn đã thua cuộc! Số bí mật là ${randomNumber}.`);
+					}
+				}
+
+				playAgain = confirm("Bạn có muốn chơi lại không?");
+			}
+			
+		}
+
+	</script>
+	<script src="assest/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

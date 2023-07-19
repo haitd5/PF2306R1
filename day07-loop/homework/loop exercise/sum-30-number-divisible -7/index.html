@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum 30 number divisible 7</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">sum 30 number divisible 7</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <!-- <div class="row py-2">
+                <div class="col-2">
+                    Nhập số :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="number" onchange="getNumber(this)" name="number">
+                </div>
+            </div> -->
+            <div>
+                <button onclick="totalNumber()" type="button" class="btn btn-primary text-capitalize" id="btnCheck">
+                    In tổng số :
+                </button>
+            </div>
+            <div class="text-danger display-5">
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let result = document.getElementById("result")
+        let btnCheck = document.getElementById("btnCheck")
+        // let time, fibonacciNumber;
+        // // let n
+
+        // function getNumber(obj) {
+        //     time = Number(obj.value)
+        //     console.log("n: " + time);
+        // }
+        function totalNumber() {
+            let count = 0;
+            let number = 1;
+            let sum = 0;
+            
+
+            while (count < 30) {
+                if (number % 7 == 0) {
+                    sum += number;
+                    count++;
+                }
+                number++;
+            }
+            result.innerText = ("Tổng 30 số đầu tiên chia hết cho 7: "+sum)
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

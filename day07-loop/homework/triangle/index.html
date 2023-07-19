@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">triangle</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-2">
+                    Nhập số nguyên :
+                </div>
+                <div class="col-3">
+                    <input type="number" id="number" onchange="getNumber(this)" name="number">
+                </div>
+            </div>
+            <div class="pb-5">
+                <button onclick="triangle2(),triangle1(), triangle3(), triangle4()" type="button" class="btn btn-primary text-capitalize"
+                    id="btnCheck">
+                    In :
+                </button>
+            </div>
+            <div class="row py-2">
+                <div id="result" class="col-3 text-primary fs-3">
+
+                </div>
+                <div id="result2" class="col-3 text-primary fs-3">
+
+                </div>
+                <div id="result3" class="col-3 text-primary fs-3">
+
+                </div>
+                <div id="result4" class="col-3 text-primary fs-3">
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer></footer>
+
+    <script>
+        let n = document.getElementById("number")
+        let result = document.getElementById("result")
+        let result2 = document.getElementById("result2")
+        let result3 = document.getElementById("result3")
+        let result4 = document.getElementById("result4")
+        function getNumber(obj) {
+            n = Number(obj.value)
+            console.log(n);
+        }
+
+
+
+        function triangle1() {
+            let triangle = " ";
+
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= i; j++) {
+                    triangle += "*";
+                }
+
+                triangle += "<br>";
+            }
+
+            return result.innerHTML = triangle;
+        }
+
+        function triangle2() {
+            let triangle2 = " ";
+
+            for (let i = n; i >= 1; i--) {
+                for (let j = 1; j <= i; j++) {
+                    triangle2 += "*";
+                }
+
+                triangle2 += "<br>";
+            }
+
+            return result2.innerHTML = triangle2;
+        }
+
+        function triangle3() {
+            let triangle3 = " ";
+
+            for (let i = 1; i <= n; i++) {
+                // In khoảng trắng bên trước mỗi dòng
+                for (let space = 1; space <= n - i; space++) {
+                    triangle3 += "&nbsp;&nbsp;"; // Sử dụng dấu cách không trắng 
+                }
+
+                // In ký tự '*' cho từng dòng
+                for (let j = 1; j <= i; j++) {
+                    triangle3 += "*";
+                }
+
+                // Xuống hàng sau mỗi dòng
+                triangle3 += "<br>";
+            }
+
+            return result3.innerHTML = triangle3;
+        }
+        function triangle4() {
+            let triangle4 = " ";
+
+            for (let i = n; i >= 1; i--) {
+                // In khoảng trắng bên trước mỗi dòng
+                for (let space = 1; space <= n - i; space++) {
+                    triangle4 += "&nbsp;&nbsp;"; // Sử dụng dấu cách không trắng 
+                }
+
+                // In ký tự '*' cho từng dòng
+                for (let j = 1; j <= i; j++) {
+                    triangle4 += "*";
+                }
+
+                // Xuống hàng sau mỗi dòng
+                triangle4 += "<br>";
+            }
+
+            return result4.innerHTML = triangle4;
+        }
+
+    </script>
+</body>
+
+</html>

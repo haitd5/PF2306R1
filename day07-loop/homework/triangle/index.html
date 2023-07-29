@@ -26,8 +26,8 @@
                 </div>
             </div>
             <div class="pb-5">
-                <button onclick="triangle2(),triangle1(), triangle3(), triangle4()" type="button" class="btn btn-primary text-capitalize"
-                    id="btnCheck">
+                <button onclick="triangle2(),triangle1(), triangle3(), triangle4()" type="button"
+                    class="btn btn-primary text-capitalize" id="btnCheck">
                     In :
                 </button>
             </div>
@@ -68,7 +68,7 @@
 
             for (let i = 1; i <= n; i++) {
                 for (let j = 1; j <= i; j++) {
-                    triangle += "*";
+                    triangle += " " + (n-j);
                 }
 
                 triangle += "<br>";
@@ -82,7 +82,7 @@
 
             for (let i = n; i >= 1; i--) {
                 for (let j = 1; j <= i; j++) {
-                    triangle2 += "*";
+                    triangle2 += " " + j;
                 }
 
                 triangle2 += "<br>";
@@ -95,14 +95,14 @@
             let triangle3 = " ";
 
             for (let i = 1; i <= n; i++) {
-                // In khoảng trắng bên trước mỗi dòng
+                // In khoảng trắng 
                 for (let space = 1; space <= n - i; space++) {
-                    triangle3 += "&nbsp;&nbsp;"; // Sử dụng dấu cách không trắng 
+                    triangle3 += "&nbsp;&nbsp;&nbsp;";
                 }
 
                 // In ký tự '*' cho từng dòng
                 for (let j = 1; j <= i; j++) {
-                    triangle3 += "*";
+                    triangle3 += "" + j;
                 }
 
                 // Xuống hàng sau mỗi dòng
@@ -115,14 +115,14 @@
             let triangle4 = " ";
 
             for (let i = n; i >= 1; i--) {
-                // In khoảng trắng bên trước mỗi dòng
+                // In khoảng trắng 
                 for (let space = 1; space <= n - i; space++) {
-                    triangle4 += "&nbsp;&nbsp;"; // Sử dụng dấu cách không trắng 
+                    triangle4 += "&nbsp;&nbsp;&nbsp;";
                 }
 
                 // In ký tự '*' cho từng dòng
                 for (let j = 1; j <= i; j++) {
-                    triangle4 += "*";
+                    triangle4 += "" + j;
                 }
 
                 // Xuống hàng sau mỗi dòng

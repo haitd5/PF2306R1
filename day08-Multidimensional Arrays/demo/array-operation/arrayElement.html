@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array-operation</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">array-operation</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container w-25">
+            <div class="row py-2">
+                <input type="number" onchange="getInput(this)" placeholder="Enter any number...">
+
+            </div>
+            <div class="row py-2">
+                <button onclick="add()" class="btn btn-primary">Add</button>
+
+
+            </div>
+            <div class="row py-2">
+                <button onclick="display()" class="btn btn-primary">Display</button>
+            </div>
+            <div class="text-danger display-5">
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let inputArray = [];
+        let tempValue;
+        let result = document.getElementById("result");
+        function getInput(obj) {
+            tempValue = Number(obj.value);
+        }
+        function add() {
+            inputArray.push(tempValue);
+        }
+        function display() {
+            let text = "";
+            for (let i = 0; i < inputArray.length; i++) {
+                text += "Element " + i + " = " + inputArray[i] + "<br>"
+            }
+            result.innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>

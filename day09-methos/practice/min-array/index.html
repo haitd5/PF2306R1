@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>min array</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">min array</h1>
+        </div>
+    </header>
+    <main>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let arr1 = [3, 5, 1, 8, -3, 7, 8];
+        let arr2 = [7, 12, 6, 9, 20, 56, 89];
+        let arr3 = [];
+        let arr4 = [0, 0, 0, 0, 0, 0];
+
+        function minArr(arr) {
+            let str ='';
+            if(arr.length==0){
+                return null;
+            }else{
+                let min = arr[0];
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i]<min) {
+                        min = arr[i];
+                    }
+                    
+                }
+                return min;
+            }
+
+            
+        }
+        console.log(minArr(arr1));
+        console.log(minArr(arr2));
+        console.log(minArr(arr3));
+        console.log(minArr(arr4));
+
+    </script>
+</body>
+
+</html>

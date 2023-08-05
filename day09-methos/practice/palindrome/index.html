@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindrome</title>
+</head>
+
+<body>
+    <script>
+        function isPalindrome(str) {
+            // Chuyển đổi từ thành chữ thường để so sánh dễ dàng hơn
+            str = str.toLowerCase();
+            // Kiểm tra độ dài
+            if (str.length <= 1) {
+                return true;
+            }
+
+            // Kiểu tra ký tự đầu và cuối
+            if (str[0] !== str[str.length - 1]) {
+                return false;
+            }
+            // Dùng đệ quy 
+            return isPalindrome(str.slice(1, str.length - 1));
+        }
+
+
+        let str1 = "rotor";
+        let str2 = "redder";
+        let str3 = "motor";
+        let str4 = "";
+
+        console.log(isPalindrome(str1));
+        console.log(isPalindrome(str2));
+        console.log(isPalindrome(str3));
+        console.log(isPalindrome(str4)); 
+
+    </script>
+</body>
+
+</html>

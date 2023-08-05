@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function footToMeter(foot) {
+            return 0.305 * foot;
+        }
+        function meterToFoot(meter) {
+            return 3.279 * meter;
+        }
+
+        function display() {
+            console.log("Feet" + "     " + "Meter" + "     |     " + "Metert" + "     " + "Feet");
+            console.log('--------------------------------------------');
+            for (let i = 1, j = 20; i <= 10; i++, j = j + 5) {
+                console.log(`${i.toFixed(1)}     ${footToMeter(i).toFixed(3)}     |     ${j.toFixed(1)}     ${meterToFoot(j).toFixed(3)}`);
+            }
+        }
+
+        display();
+    </script>
+</body>
+
+</html>

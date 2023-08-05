@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse number</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">Temperature converter</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-2">
+                    Fahrenheit :
+                </div>
+                <div class="col-4">
+                    <input type="number" id="fahrenheit" onchange="getNumber(this)">
+                </div>
+            </div>
+            <div>
+                <button onclick="temperatureConverter()" type="button" class="btn btn-primary text-capitalize" id="btnCheck">
+                    In:
+                </button>
+            </div>
+            <div class="text-danger display-5">
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let fahrenheit = document.getElementById('fahrenheit');
+        let btnCheck = document.getElementById('btnCheck');
+        let result = document.getElementById('result')
+
+        function getNumber(obj) {
+            fahrenheit = Number(obj.value);
+            console.log(fahrenheit);
+        }
+
+        function temperatureConverter() {
+            let celcius = 0;
+            celcius = (fahrenheit - 32) / 1.8;
+            return result.innerText=('Celcius: ' + celcius)
+        }
+
+        
+    </script>
+</body>
+
+</html>

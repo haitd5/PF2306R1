@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check integer</title>
+</head>
+
+<body>
+    <script>
+
+
+        function isPositiveInteger(number) {
+            // Kiểm tra nếu số là số nguyên dương và lớn hơn 0
+            return Number.isInteger(number) && number > 0;
+        }
+
+        function checkIntegerInput() {
+            let input = prompt('Enter a number:');
+            while (input == "") {
+                input = prompt('Enter a number: ');
+            }
+            let parsedInput = parseFloat(input);
+
+            if (isPositiveInteger(parsedInput)) {
+                console.log(`${input} is integer`);
+            } else {
+                console.log(`${input} is not integer`)
+            }
+        }
+
+
+        // Gọi hàm để kiểm tra đầu vào từ người dùng
+        checkIntegerInput();
+
+
+
+    </script>
+</body>
+
+</html>

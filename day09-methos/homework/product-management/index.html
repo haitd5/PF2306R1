@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product management</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+    <style>
+        input {
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container text-center pt-3">
+            <h1 class="text-uppercase text-primary">product management</h1>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container">
+            <h3 class="text-uppercase text-primary">Add new product</h3>
+            <div class="input-group mb-4 w-25">
+                <input type="text" class="form-control" placeholder="New product" id="addData">
+                <button class="btn btn-success" onclick="addProduct()">Add</button>
+            </div>
+            <h3 class="text-uppercase text-primary">Display all Product</h3>
+            <table class="table table-striped my-4" id="mul-table">
+                <tr class="text-center">
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr class="text-center">
+                    <td class="col-2">1</td>
+                    <td class="col-3">
+                        <input type="text" value="Sony Xperia" class="w-100 text-center border-0" readonly>
+                    </td>
+                    <td class="col-3">
+                        <button class="btn btn-success" onclick="editProduct(1)" id="">Edit</button>
+                        <button class="btn btn-dark d-none" onclick="saveProduct(1)">Save</button>
+                    </td>
+                    <td class="col-3"><button class="btn btn-danger" onclick="deleteProduct(1)">Delete</button></td>
+                </tr>
+                <tr class="text-center">
+                    <td class="col-2">1</td>
+                    <td class="col-3">
+                        <input type="text" value="Sony Xperia" class="w-100 text-center border-0" readonly id="">
+                    </td>
+                    <td class="col-3">
+                        <button class="btn btn-success">Edit</button>
+                        <button class="btn btn-dark d-none">Save</button>
+                    </td>
+                    <td class="col-3"><button class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SamSung Galaxy</td>
+                    <td><button class="btn btn-success">Edit</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SamSung Galaxy</td>
+                    <td><button class="btn btn-success">Edit</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SamSung Galaxy</td>
+                    <td><button class="btn btn-success">Edit</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SamSung Galaxy</td>
+                    <td><button class="btn btn-success">Edit</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SamSung Galaxy</td>
+                    <td><button class="btn btn-success">Edit</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SamSung Galaxy</td>
+                    <td><button class="btn btn-success">Edit</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer></footer>
+    <!-- <script src="assest/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        let product = ['Sony Xperia', 'SamSung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple Iphone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71']
+        let productAdd;
+        function creatTable() {
+            let mulTable = document.getElementById('mul-table');
+            let table = '<tr  class="text-center"><th>#</th><th>Product Name</th><th>Edit</th><th>Delete</th></tr>';
+            for (let row = 0; row < product.length; row++) {
+                table += '<tr  class="text-center">'
+
+                table += `<td class="col-2">${row + 1}</td><td class="col-3"><input type="text" value="${product[row]}" class="w-100 text-center border-0" readonly id="inputProduct-${row}"></td><td class="col-3"><button class="btn btn-success" onclick="editProduct(${row})" id="edit-${row}">Edit</button><button class="btn btn-dark d-none" id="save-${row}" onclick="saveProduct(${row})">Save</button></td><td class="col-3"><button class="btn btn-danger" onclick="deleteProduct(${row})">Delete</button></td>`
+
+                table += '</tr>';
+            }
+            mulTable.innerHTML = table;
+        }
+
+
+        function addProduct() {
+            let inputData = document.getElementById('addData').value.trim();
+            if (inputData !== '') {
+                product.push(inputData);
+                creatTable();
+                document.getElementById('addData').value = '';
+            } else {
+                alert('Please enter data!');
+            }
+        }
+
+        function editProduct(index) {
+            document.getElementById(`inputProduct-${index}`).readOnly = false;
+            document.getElementById(`inputProduct-${index}`).focus();
+            document.getElementById(`edit-${index}`).classList.add('d-none');
+            document.getElementById(`save-${index}`).classList.remove('d-none');
+        }
+
+        function saveProduct(index) {
+            let inputElement = document.getElementById(`inputProduct-${index}`);
+            let newInputProduct = inputElement.value.trim();
+            creatTable[index] = newInputProduct;
+            inputElement.readOnly = true;
+            document.getElementById(`edit-${index}`).classList.remove('d-none');
+            document.getElementById(`save-${index}`).classList.add('d-none');
+
+            product[index] = newInputProduct;
+
+            // creatTable();
+            console.log(product);
+        }
+
+        function deleteProduct(index) {
+            product.splice(index, 1);
+            creatTable();
+        }
+
+        creatTable();
+
+
+
+    </script>
+</body>
+
+</html>

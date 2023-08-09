@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" height="300" width="300"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+
+        var window_height = window.innerHeight;
+        var window_width = window.innerWidth;
+
+        canvas.width = window_width;
+        canvas.height = window_height;
+
+        canvas.style.background = "#ff8"
+
+        // context.fillRect(200, 200, 100, 100)
+        // context.fillStyle = 'red';
+        // context.fillRect(100, 500, 100, 100)
+
+        // context.beginPath();
+        // context.strokeStyle = 'blue';
+        // context.lineWidth = 20;
+        // context.arc(100, 100, 50, 0, Math.PI * 2, false)
+        // context.stroke();
+        // context.closePath();
+
+        // tạo hình chữ nhật
+
+        class Cirlce {
+            constructor(xpos, ypos, radius, color) {
+                this.xpos = xpos;
+                this.ypos = ypos;
+                this.radius = radius;
+                this.color = color;
+            }
+            draw(context) {
+                context.beginPath();
+                context.arc(this.xpos, this.ypos, this.radius, 0, Math.PI * 2, false)
+                context.stroke();
+                context.closePath();
+            }
+        }
+
+
+
+
+        let all_circle = [];
+
+        let createrCircle = function (circle) {
+            circle.draw(context);
+
+        }
+
+        for (var numbers = 0; numbers < 10; numbers++) {
+            let random_x = Math.random() * window_width;
+            let random_y = Math.random() * window_width;
+
+            let my_circle = new Cirlce(random_x, random_y, 50, 'black');
+            all_circle.push(my_circle);
+            createrCircle(all_circle[numbers]);
+        }
+        
+        console.log(all_circle);
+
+
+
+
+    </script>
+</body>
+
+</html>

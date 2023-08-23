@@ -42,6 +42,7 @@
         let btnCheck = document.getElementById("btnCheck")
         let time = 20;
         let fibonacciNumber;
+        let sum = 0;
         // let n
 
         // function getNumber(obj) {
@@ -62,14 +63,16 @@
         function main() {
             for (let i = 1; i <= time; i++) {
                 fibonacciNumber = fibonacci(i);
-
+                sum += fibonacciNumber
                 document.write(fibonacciNumber + " ")
+
                 // result.innerText = (fibonacciNumber + " ")
-                
+
             }
-            
+            document.write('sum: ' + sum)
+
         }
-        
+
 
     </script>
 </body>

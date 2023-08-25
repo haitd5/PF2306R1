@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assest/css/style.css"> -->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 justify-content-center pt-5 ps-5">
+                <div class="card border border-4 border-black px-2 py-3">
+                    <h1 class="text-primary text-center pb-3">Space Invaders</h1>
+                    <p class=""><strong>Mục tiêu: </strong>Tiêu diệt kẻ xâm lược</p>
+                    <p class=""><strong class="pb-2">Hướng dẫn: </strong><br>
+                        <span class="btn btn-primary">&#8592; </span>  di chuyển sang trái.</p>
+                    <p class=""><span class="btn btn-primary">&#8594; </span> di chuyển sang phải.</p>
+                    <p class="">Dùng phím space để bắn địch.</p>
+
+                    <strong>Hãy trải nghiệm game vui vẻ </strong>
+                </div>
+
+
+
+            </div>
+            <div class="col-9 text-center">
+                <div class="row text-center justify-content-center pb-2">
+                    <img src="assest/media/images/logo.png" alt="" class="w-25 text-center">
+                </div>
+                <div
+                    class="row w-50 text-center justify-content-center align-items-center m-auto d-flex position-relative">
+                    <button id="startButton"
+                        class="btn btn-primary w-25 position-absolute top-50 start-50 translate-middle">Start
+                        Game</button>
+                    <button id="playAgainButton"
+                        class="btn btn-primary w-25 position-absolute top-50 start-50 translate-middle d-none">Restart
+                        Game</button>
+                    <canvas id="game" class="bg-black"></canvas>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="assest/js/index.js"></script>
+</body>
+
+</html>
